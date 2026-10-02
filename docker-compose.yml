@@ -1,0 +1,15 @@
+services:
+  capstone-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      CAPSTONE_ENV: production
+      CAPSTONE_SECRET_KEY: ${CAPSTONE_SECRET_KEY:?Set CAPSTONE_SECRET_KEY before starting}
+      CAPSTONE_CORS_ORIGINS: ${CAPSTONE_CORS_ORIGINS:-http://localhost:3000}
+      CAPSTONE_DB_PATH: /app/data/capstone.sqlite3
+    volumes:
+      - capstone_data:/app/data
+
+volumes:
+  capstone_data:

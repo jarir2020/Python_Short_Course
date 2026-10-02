@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+django_project/db.sqlite3
+
+fastapi_project/fastapi.sqlite3
+.pytest_cache/
+flask_project/instance/
+instance/
+capstone_api/*.sqlite3
+.env

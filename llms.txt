@@ -1,0 +1,32 @@
+# Python_Short_Course
+
+> A beginner-friendly Python backend learning track covering Python core, HTTP, SQL, Django, Flask, FastAPI, security, testing, deployment, and production architecture.
+
+## Start here
+
+- Read `Plan.md` for the complete learning roadmap.
+- Read `README.md` for commands and links to phase guides.
+- Read `AGENTS.md` before making repository changes.
+
+## Learning phases
+
+1. `python_core/`: Python syntax, data structures, OOP, exceptions, decorators, typing, modules, iterators, and generators.
+2. `web_backend/`: HTTP request/response behavior and SQLite SQL practice.
+3. `django_project/`: Django and Django REST Framework task API.
+4. `fastapi_project/`: typed asynchronous FastAPI task API with Pydantic and async SQLite.
+5. `flask_project/`: Flask application factory, blueprint, request lifecycle, and SQLite API.
+6. `capstone_api/`: OAuth2 password login, Argon2 hashing, JWT authorization, security headers, rate limiting, and deployment configuration.
+7. `capstone_api/` extensions: service/repository layering, request correlation IDs, timing metadata, health checks, observability, and CI quality gates.
+
+## Important commands
+
+```bash
+source .venv/bin/activate
+pytest -q
+python manage.py test
+python -m compileall -q python_core web_backend django_project fastapi_project flask_project capstone_api tests
+```
+
+The project is intentionally educational. Comments and tests explain why the
+code behaves as it does; do not treat the SQLite database, in-memory rate
+limiter, development secret, or development server as production defaults.
