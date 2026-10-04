@@ -104,3 +104,19 @@ The framework examples now use the same responsibility flow: controller for HTTP
 See [guides/MVC_ARCHITECTURE.md](guides/MVC_ARCHITECTURE.md) for the mapping, folder tree, and request diagrams.
 
 The backend packages use explicit `config/`, `models/`, `controllers/`, `routes/`, `services/`, `repositories/`, and `tests/` folders. Django uses the same visible folders while preserving its native MVT terminology.
+
+## PowerTrack practical project
+
+The repository now includes [PowerTrack](power_outage_project/README.md), a
+small Django REST Framework project for managing load-shedding and power
+outage reports. It demonstrates a custom role-aware user, customer reports,
+admin assignment, technician progress updates, workflow rules, and tests.
+
+Run its first stage from the repository root:
+
+```bash
+./.venv/bin/python power_outage_project/manage.py migrate
+./.venv/bin/python power_outage_project/manage.py test
+```
+
+The detailed plan is in [Plan2.md](Plan2.md).

@@ -8,4 +8,5 @@ fastapi_project/fastapi.sqlite3
 flask_project/instance/
 instance/
 capstone_api/*.sqlite3
+power_outage_project/powertrack.sqlite3
 .env
