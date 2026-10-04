@@ -148,3 +148,23 @@ export POWERTRACK_FASTAPI_BASE_URL=http://127.0.0.1:8001
 
 Open `http://127.0.0.1:8002/`. The dashboard is read-only and displays a
 friendly temporary-unavailable page if FastAPI is down.
+
+## Run and manually test all PowerTrack services
+
+The root `run.sh` starts the services in the correct order, waits for their
+health endpoints, and keeps them running for browser/API testing:
+
+```bash
+./run.sh
+```
+
+Useful alternatives:
+
+```bash
+./run.sh smoke   # start services, check them, and stop
+./run.sh test    # run pytest, Django tests, and compilation
+```
+
+Set `POWERTRACK_DJANGO_TOKEN` in the shell before `./run.sh` if you want the
+FastAPI and Flask services to display real Django outage data. Without it, the
+services still start and the public data endpoint safely returns `503`.
