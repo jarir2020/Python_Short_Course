@@ -120,3 +120,31 @@ Run its first stage from the repository root:
 ```
 
 The detailed plan is in [Plan2.md](Plan2.md).
+
+## PowerTrack Stage 2: FastAPI operations service
+
+PowerTrack now also includes a read-only FastAPI service. It calls Django over
+HTTP and never opens Django's SQLite database directly.
+
+```bash
+./.venv/bin/pytest -q powertrack_operations/tests
+./.venv/bin/uvicorn powertrack_operations.main:app --reload --port 8001
+```
+
+Configure `POWERTRACK_DJANGO_BASE_URL` and `POWERTRACK_DJANGO_TOKEN` in the
+local environment before using the operations endpoints. See
+[guides/POWERTRACK_INTEGRATION.md](guides/POWERTRACK_INTEGRATION.md) for the
+request path, failure behavior, and scaling tradeoff.
+
+## PowerTrack Stage 3: Flask public dashboard
+
+The Flask dashboard consumes FastAPI's safe public outage response and renders
+an HTML status page.
+
+```bash
+export POWERTRACK_FASTAPI_BASE_URL=http://127.0.0.1:8001
+./.venv/bin/flask --app powertrack_dashboard.wsgi:app run --port 8002
+```
+
+Open `http://127.0.0.1:8002/`. The dashboard is read-only and displays a
+friendly temporary-unavailable page if FastAPI is down.

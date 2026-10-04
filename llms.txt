@@ -22,6 +22,8 @@ Each framework project keeps configuration, MVC layers, and tests in visible pac
 6. `capstone_api/`: OAuth2 password login, Argon2 hashing, JWT authorization, security headers, rate limiting, and deployment configuration.
 7. `capstone_api/` extensions: `models/`, `controllers/`, `routes/`, `services/`, and `repositories/` layering, request correlation IDs, timing metadata, health checks, observability, and CI quality gates.
 8. `power_outage_project/`: the Stage 1 PowerTrack project, using Django and DRF for customer reports, admin technician assignment, technician progress, role permissions, and workflow tests. See `Plan2.md` and `power_outage_project/README.md`.
+9. `powertrack_operations/`: the Stage 2 FastAPI read-only operations service. It calls Django over HTTP for summaries, technician queues, and safe public outage status; it does not access Django's database directly. See `guides/POWERTRACK_INTEGRATION.md`.
+10. `powertrack_dashboard/`: the Stage 3 Flask public status dashboard. It calls FastAPI over HTTP, validates the safe outage contract, and renders HTML without accessing Django directly.
 
 ## Important commands
 
@@ -29,7 +31,7 @@ Each framework project keeps configuration, MVC layers, and tests in visible pac
 source .venv/bin/activate
 pytest -q
 python manage.py test
-python -m compileall -q python_core web_backend django_project fastapi_project flask_project capstone_api power_outage_project tests
+python -m compileall -q python_core web_backend django_project fastapi_project flask_project capstone_api power_outage_project powertrack_operations powertrack_dashboard tests
 ```
 
 The project is intentionally educational. Comments and tests explain why the

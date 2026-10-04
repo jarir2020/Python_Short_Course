@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PowerTrack Public Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">PowerTrack</p>
+        <h1>Public outage status</h1>
+        <p class="subtitle">Current active outage reports provided by the operations service.</p>
+      </header>
+
+      {% if error %}
+        <section class="notice notice-error" role="alert">
+          <strong>Service temporarily unavailable</strong>
+          <p>{{ error }}</p>
+        </section>
+      {% elif outages %}
+        <section class="outage-grid" aria-label="Active outages">
+          {% for outage in outages %}
+            <article class="outage-card">
+              <div class="card-heading">
+                <h2>{{ outage.area }}</h2>
+                <span class="status status-{{ outage.status|replace('_', '-') }}">{{ outage.status|replace('_', ' ')|title }}</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Priority</dt>
+                  <dd>{{ outage.priority|title }}</dd>
+                </div>
+                <div>
+                  <dt>Reported</dt>
+                  <dd>{{ outage.created_at.strftime('%d %b %Y, %H:%M') }} UTC</dd>
+                </div>
+              </dl>
+            </article>
+          {% endfor %}
+        </section>
+      {% else %}
+        <section class="notice notice-ok">
+          <strong>No active outages</strong>
+          <p>PowerTrack is not currently reporting an active outage.</p>
+        </section>
+      {% endif %}
+
+      <footer class="footer">Read-only public view · PowerTrack operations</footer>
+    </main>
+  </body>
+</html>
