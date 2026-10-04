@@ -22,7 +22,6 @@ The code comments explain the theory immediately beside the behavior. The
 tests are also examples: each test connects one concept to an observable
 result instead of treating the lesson as a collection of definitions.
 
-
 Current Phase 1 lessons cover syntax and control flow, references and scope,
 data structures and OOP, exceptions and context managers, decorators and type
 hints, modules and virtual environments, and iterables and generators.
@@ -83,7 +82,6 @@ python manage.py test
 
 Deployment examples are in [guides/PHASE6_THEORY_QUICK_GUIDE.md](guides/PHASE6_THEORY_QUICK_GUIDE.md).
 
-
 ## Run Phase 7
 
 Phase 7 adds production architecture and observability to the capstone: service/repository layering, request IDs, timing metadata, liveness/readiness checks, and a CI workflow.
@@ -98,3 +96,11 @@ uvicorn capstone_api.main:app --reload
 Read [guides/PHASE7_THEORY_QUICK_GUIDE.md](guides/PHASE7_THEORY_QUICK_GUIDE.md) for the request path and the theory behind each layer.
 
 # Python_Short_Course
+
+## MVC-style architecture
+
+The framework examples now use the same responsibility flow: controller for HTTP, service for business rules, model or schema for data, and repository for database access. Django uses its native MVT naming, where a ViewSet acts as the controller and serializers shape the API response.
+
+See [guides/MVC_ARCHITECTURE.md](guides/MVC_ARCHITECTURE.md) for the mapping, folder tree, and request diagrams.
+
+The backend packages use explicit `config/`, `models/`, `controllers/`, `routes/`, `services/`, `repositories/`, and `tests/` folders. Django uses the same visible folders while preserving its native MVT terminology.

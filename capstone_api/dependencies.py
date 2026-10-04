@@ -8,7 +8,7 @@ from fastapi import Depends, HTTPException, status
 
 from .config import Settings, get_settings
 from .database import get_db
-from .repository import StoredUser, find_user
+from .repositories import StoredUser, find_user
 from .security import decode_access_token, oauth2_scheme
 from .services import TaskService
 

@@ -43,3 +43,7 @@ Useful endpoints:
 * `GET /api/tasks/` — authenticated task list
 * `POST /api/tasks/` — authenticated task creation
 * `GET /api/tasks/<id>/` — authenticated owner-only detail
+
+## MVC and Django MVT
+
+Django calls its MVC-like structure MVT. The `Task` model owns persistence, `TaskViewSet` acts as the controller, and `TaskSerializer` validates and shapes the API representation. The URL router connects HTTP requests to the controller.

@@ -69,3 +69,7 @@ uvicorn capstone_api.main:app --reload
 curl -i http://127.0.0.1:8000/api/health/live
 curl -i http://127.0.0.1:8000/api/health/ready
 ```
+
+## Architecture comparison
+
+The capstone already uses `services/` and `repositories/` layers. Phase 4 and Phase 5 now use the same folder structure, while Django demonstrates the framework-native MVT version. See [guides/MVC_ARCHITECTURE.md](guides/MVC_ARCHITECTURE.md).

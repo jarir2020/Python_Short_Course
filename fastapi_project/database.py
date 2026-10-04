@@ -5,8 +5,9 @@ from pathlib import Path
 
 import aiosqlite
 
+from .config import DATABASE_PATH
 
-DATABASE_PATH = Path(__file__).resolve().parent / "fastapi.sqlite3"
+
 
 CREATE_TASKS_TABLE = """
 CREATE TABLE IF NOT EXISTS tasks (

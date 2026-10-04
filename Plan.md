@@ -649,7 +649,7 @@ You don't need to become DevOps-heavy, but understand:
 For experienced developer interviews, these become valuable.
 
 * MVC / MVT
-* Layered architecture
+* Layered architecture and MVC/MVT boundaries
 * Service layer
 * Repository pattern
 * Dependency injection

@@ -7,7 +7,7 @@ from fastapi import FastAPI
 
 from .database import initialize_database
 from .routes import router as task_router
-from .schemas import HealthResponse
+from .models import HealthResponse
 
 
 @asynccontextmanager

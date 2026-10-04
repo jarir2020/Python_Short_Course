@@ -7,14 +7,14 @@ called from a CLI, a background job, or another transport later.
 
 import aiosqlite
 
-from .repository import (
+from ..repositories import (
     create_task,
     delete_task,
     get_task,
     list_tasks,
     update_task,
 )
-from .schemas import TaskCreate, TaskRead, TaskUpdate
+from ..models import TaskCreate, TaskRead, TaskUpdate
 
 
 class TaskService:

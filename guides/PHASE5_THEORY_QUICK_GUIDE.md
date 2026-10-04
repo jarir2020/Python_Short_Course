@@ -37,3 +37,7 @@ flask --app flask_project.wsgi:app run --debug
 The Phase 5 service uses direct SQLite to keep Flask's core visible. A later
 extension lesson can replace it with Flask-SQLAlchemy without changing the
 application-factory or blueprint ideas.
+
+## MVC-style mapping
+
+The blueprint functions in `controllers/task_controller.py` are controllers. `services/task_service.py` owns validation and use-cases, `models/task_model.py` contains the domain object, and `repositories/task_repository.py` owns SQL. `tasks.py` remains only as a compatibility export for earlier learner imports.

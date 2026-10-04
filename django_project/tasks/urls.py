@@ -1,13 +1,5 @@
-"""URL routing for task resources."""
+"""Compatibility export for the routes package."""
 
-from rest_framework.routers import DefaultRouter
+from .routes import urlpatterns
 
-from .views import TaskViewSet
-
-
-router = DefaultRouter()
-# Routers generate consistent list/detail URLs and connect HTTP verbs to the
-# ViewSet actions. Register the prefix without a trailing slash.
-router.register("tasks", TaskViewSet, basename="task")
-
-urlpatterns = router.urls
+__all__ = ["urlpatterns"]

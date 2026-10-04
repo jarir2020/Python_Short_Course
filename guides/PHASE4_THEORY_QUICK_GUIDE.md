@@ -3,8 +3,8 @@
 ## Request flow
 
 ```text
-HTTP request -> path operation -> dependencies -> Pydantic validation
-             -> async repository -> response model -> JSON response
+HTTP request -> route registration -> controller -> dependencies
+             -> service -> async repository -> response model -> JSON response
 ```
 
 FastAPI reads Python type annotations to understand path parameters, request
@@ -41,3 +41,7 @@ Run all tests with:
 ```bash
 pytest
 ```
+
+## MVC-style mapping
+
+The route functions are controllers: they translate HTTP input and status codes. `services/task_service.py` contains use-cases, `repositories/task_repository.py` contains async SQLite statements, and `models/task_models.py` contains validated request and response models. This keeps FastAPI dependency injection visible without hiding the database work.

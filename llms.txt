@@ -8,6 +8,10 @@
 - Read `README.md` for commands and links to phase guides.
 - Read `AGENTS.md` before making repository changes.
 
+## Project layout
+
+Each framework project keeps configuration, MVC layers, and tests in visible package folders. The root `tests/` package contains shared pytest configuration for the course.
+
 ## Learning phases
 
 1. `python_core/`: Python syntax, data structures, OOP, exceptions, decorators, typing, modules, iterators, and generators.
@@ -16,7 +20,7 @@
 4. `fastapi_project/`: typed asynchronous FastAPI task API with Pydantic and async SQLite.
 5. `flask_project/`: Flask application factory, blueprint, request lifecycle, and SQLite API.
 6. `capstone_api/`: OAuth2 password login, Argon2 hashing, JWT authorization, security headers, rate limiting, and deployment configuration.
-7. `capstone_api/` extensions: service/repository layering, request correlation IDs, timing metadata, health checks, observability, and CI quality gates.
+7. `capstone_api/` extensions: `models/`, `controllers/`, `routes/`, `services/`, and `repositories/` layering, request correlation IDs, timing metadata, health checks, observability, and CI quality gates.
 
 ## Important commands
 

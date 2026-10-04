@@ -8,8 +8,10 @@ from uuid import uuid4
 
 from flask import Flask, g, jsonify, request
 
+from .config import DEFAULT_SECRET_KEY, DATABASE_FILENAME
 from .db import init_app, init_db
-from .tasks import TaskValidationError, task_api
+from .routes import task_api
+from .services import TaskValidationError
 
 
 def create_app(test_config: dict[str, object] | None = None) -> Flask:
@@ -21,8 +23,8 @@ def create_app(test_config: dict[str, object] | None = None) -> Flask:
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY="phase-5-learning-only-change-before-production",
-        DATABASE=os.path.join(app.instance_path, "flask.sqlite3"),
+        SECRET_KEY=DEFAULT_SECRET_KEY,
+        DATABASE=os.path.join(app.instance_path, DATABASE_FILENAME),
     )
 
     if test_config is None:

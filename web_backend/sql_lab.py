@@ -33,7 +33,7 @@ def create_library_database() -> sqlite3.Connection:
                 author_id INTEGER NOT NULL,
                 FOREIGN KEY (author_id) REFERENCES authors (id)
             );
-            """
+            """ #Using Triple Quotes for multi-line string
         )
         connection.executemany(
             "INSERT INTO authors (id, name) VALUES (?, ?)",
